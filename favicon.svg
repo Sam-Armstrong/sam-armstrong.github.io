@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SA">
+  <defs>
+    <style>
+      @font-face {
+        font-family: "Instrument Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("https://fonts.gstatic.com/s/instrumentsans/v4/pximypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr-yp2JGEJOH9npSQb_gf1.ttf") format("truetype");
+      }
+    </style>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#c45c26"/>
+  <text
+    x="16"
+    y="15.5"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="Instrument Sans, system-ui, -apple-system, sans-serif"
+    font-size="17"
+    font-weight="600"
+    fill="#fffcf7"
+  >S<tspan dx="1.2">A</tspan></text>
+</svg>
