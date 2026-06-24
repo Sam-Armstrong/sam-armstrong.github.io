@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sam Armstrong">
+  <title>Sam Armstrong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ed;
+      --surface: #fffcf7;
+      --ink: #1a1814;
+      --muted: #7a756d;
+      --accent: #c45c26;
+      --accent-soft: rgba(196, 92, 38, 0.12);
+      --border: rgba(26, 24, 20, 0.1);
+      --radius: 14px;
+      --max-width: 680px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(196, 92, 38, 0.08), transparent 42%),
+        radial-gradient(circle at 100% 100%, rgba(26, 24, 20, 0.04), transparent 40%),
+        var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--ink);
+    }
+
+    .page {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    header.site-header {
+      margin-bottom: 56px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .site-title {
+      margin: 0;
+      font-family: "DM Serif Display", Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .site-avatar {
+      width: clamp(72px, 18vw, 150px);
+      height: clamp(72px, 18vw, 150px);
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    nav.toc a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav.toc a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      margin-bottom: 64px;
+      scroll-margin-top: 32px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin: 0 0 16px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .profile-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .profile-links a:hover {
+      color: var(--accent);
+    }
+
+    .profile-links img {
+      width: 20px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-item {
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-item:hover {
+      border-color: rgba(196, 92, 38, 0.3);
+      box-shadow: 0 4px 16px rgba(26, 24, 20, 0.06);
+    }
+
+    .project-item h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .project-item h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .project-item h3 a:hover {
+      color: var(--accent);
+    }
+
+    .project-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .writing-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .writing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .writing-title {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 100;
+      line-height: 1.4;
+      padding-top: 10px;
+    }
+
+    .writing-author {
+      margin: 0;
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 5px;
+    }
+
+    .writing-date {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 5px;
+      padding-bottom: 10px;
+    }
+
+    .pdf-link {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      line-height: 0;
+      border-radius: 6px;
+    }
+
+    .pdf-link img {
+      display: block;
+      height: 220px;
+      width: auto;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding-top: 40px;
+      }
+
+      .writing-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="toc" aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+    </nav>
+    <header class="site-header">
+      <div class="site-title-row">
+        <h1 class="site-title">Sam Armstrong</h1>
+        <img src="images/sam.jpeg" alt="Sam Armstrong" class="site-avatar">
+      </div>
+      <!-- <p class="site-tagline"></p> -->
+      <div class="profile-links">
+        <a href="mailto:hello@example.com">
+          <img src="images/gmail.png" alt="">
+          samuel.armstrong2014@gmail.com
+        </a>
+        <a href="https://github.com/Sam-Armstrong">
+          <img src="images/github.png" alt="">
+          github.com/Sam-Armstrong
+        </a>
+        <a href="https://www.linkedin.com/in/sam-a-a5557112a/">
+          <img src="images/linkedin.png" alt="">
+          linkedin.com/in/sam-a-a5557112a/
+        </a>
+      </div>
+    </header>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <p class="section-label">Things I've Worked On</p>
+      <ul class="project-list">
+        <li class="project-item">
+          <h3><a href="#">ivy</a></h3>
+          <p>Significantly contributed to ivy - a multi-backend deep learning framework with transpilation and optimisation capabilities.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch/JAX</span>
+            <span class="tag">Neural Networks</span>
+            <span class="tag">Graph Compilation</span>
+            <span class="tag">AST</span>
+          </div>
+        </li>
+        <li class="project-item">
+          <h3><a href="#">CozyCasts</a></h3>
+          <p>
+            Built CozyCasts from scratch, which is a AI-generated podcasts platform to help with learning.
+            Created the backend with Python and FastAPI, deployed on Google Cloud Platform, making use
+            of the Gemini and Claude APIs. Created the frontend with React and TypeScript, deployed on Vercel.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">System Design</span>
+            <span class="tag">GCP</span>
+            <span class="tag">Agentic AI</span>
+            <span class="tag">AI Deployment</span>
+            <span class="tag">React/TypeScript</span>
+          </div>
+        </li>
+        <li class="project-item">
+          <h3><a href="#">OP2</a></h3>
+          <p>Developed the OP2 translator for Fortran source code using the LLVM Flang compiler frontend.</p>
+          <div class="project-tags">
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">AST</span>
+            <span class="tag">Compilers</span>
+            <span class="tag">Domain Specific Languages</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="writing" aria-labelledby="writing-heading">
+      <p class="section-label">Writing</p>
+      <ul class="writing-list">
+        <li class="writing-item">
+          <a href="pdfs/research_proposal.pdf" target="_blank" rel="noopener" class="pdf-link">
+            <img src="images/research_proposal.png" alt="">
+          </a>
+          <h3 class="writing-title">Research Proposal: Investigating Integrations of the Flang Parser with OP2</h3>
+          <p class="writing-author">Sam Armstrong</p>
+          <p class="writing-date">2026</p>
+        </li>
+        <li class="writing-item">
+          <a href="pdfs/first_price_auction.pdf" target="_blank" rel="noopener" class="pdf-link">
+            <img src="images/first_price_auction.png" alt="">
+          </a>
+          <h3 class="writing-title">An Agentic Approach to a First Price Auction with Complementary Goods</h3>
+          <p class="writing-author">Sam Armstrong</p>
+          <p class="writing-date">2026</p>
+        </li>
+        <li class="writing-item">
+            <a href="pdfs/parallelising_CFD_solver.pdf" target="_blank" rel="noopener" class="pdf-link">
+              <img src="images/parallelising_CFD_solver.png" alt="">
+            </a>
+            <h3 class="writing-title">Parallelising a Computational Fluid Dynamics Solver using Distributed Memory Parallelisation</h3>
+            <p class="writing-author">Sam Armstrong</p>
+            <p class="writing-date">2026</p>
+          </li>
+        <li class="writing-item">
+          <a href="pdfs/models_for_code_optimisation.pdf" target="_blank" rel="noopener" class="pdf-link">
+            <img src="images/models_for_code_optimisation.png" alt="">
+          </a>
+          <h3 class="writing-title">A Survey of Language Models for Source-level Code Optimisation</h3>
+          <p class="writing-author">Sam Armstrong</p>
+          <p class="writing-date">2025</p>
+        </li>
+        <li class="writing-item">
+            <a href="pdfs/pose_estimation.pdf" target="_blank" rel="noopener" class="pdf-link">
+              <img src="images/pose_estimation.png" alt="">
+            </a>
+            <h3 class="writing-title">3D Pose Estimation using mmWave Radar Data</h3>
+            <p class="writing-author">Sam Armstrong</p>
+            <p class="writing-date">2025</p>
+          </li>
+        <li class="writing-item">
+            <a href="pdfs/MABS.pdf" target="_blank" rel="noopener" class="pdf-link">
+              <img src="images/MABS.png" alt="">
+            </a>
+            <h3 class="writing-title">Reconsidering an Agent-Based Model of Food Web Evolution</h3>
+            <p class="writing-author">Sam Armstrong and Emma Norling</p>
+            <p class="writing-date">2021</p>
+          </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
