@@ -320,6 +320,31 @@
       box-shadow: 0 2px 12px rgba(26, 24, 20, 0.1);
     }
 
+    .miscellaneous-list {
+      margin: 0;
+      padding-left: 24px;
+      list-style: disc;
+    }
+
+    .miscellaneous-item {
+      margin: 0 0 10px;
+    }
+
+    .miscellaneous-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .miscellaneous-item a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .miscellaneous-item a:hover {
+      color: var(--accent);
+    }
+
     @media (max-width: 520px) {
       .page {
         width: min(100% - 24px, var(--max-width));
@@ -353,19 +378,19 @@
           <p class="cv-updated">Last Updated: June 2026</p>
         </div>
         <div class="profile-links">
-          <a href="https://maps.app.goo.gl/bzPpt8V1fGopnj1eA">
+          <a href="https://maps.app.goo.gl/bzPpt8V1fGopnj1eA" target="_blank" rel="noopener">
             <img src="images/location.png" alt="">
             UK - West Midlands / London
           </a>
-          <a href="mailto:hello@example.com">
+          <a href="mailto:hello@example.com" target="_blank" rel="noopener">
             <img src="images/gmail.png" alt="">
             samuel.armstrong2014@gmail.com
           </a>
-          <a href="https://github.com/Sam-Armstrong">
+          <a href="https://github.com/Sam-Armstrong" target="_blank" rel="noopener">
             <img src="images/github.png" alt="">
             github.com/Sam-Armstrong
           </a>
-          <a href="https://www.linkedin.com/in/sam-a-a5557112a/">
+          <a href="https://www.linkedin.com/in/sam-a-a5557112a/" target="_blank" rel="noopener">
             <img src="images/linkedin.png" alt="">
             linkedin.com/in/sam-a-a5557112a/
           </a>
@@ -466,8 +491,28 @@
             </a>
             <h3 class="writing-title">Reconsidering an Agent-Based Model of Food Web Evolution</h3>
             <p class="writing-author">Sam Armstrong and Emma Norling</p>
-            <p class="writing-date">2021</p>
+            <p class="writing-date">2022</p>
           </li>
+      </ul>
+    </section>
+    <section id="miscellaneous" aria-labelledby="miscellaneous-heading">
+      <p class="section-label">Miscellaneous</p>
+      <ul class="miscellaneous-list">
+        <li class="miscellaneous-item">
+          <a href="https://www.sheffield.ac.uk/dcs/undergraduate/profiles/samuel" target="_blank" rel="noopener">
+            My University of Sheffield graduate profile
+          </a>
+        </li>
+        <li class="miscellaneous-item">
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-22947-3_6" target="_blank" rel="noopener">
+              Publication: Reconsidering an Agent-Based Model of Food Web Evolution (MABS 2022)
+            </a>
+          </li>
+        <li class="miscellaneous-item">
+          <a href="https://kornia.readthedocs.io/en/latest/get-started/multi-framework-support.html" target="_blank" rel="noopener">
+            Ivy's integration into Kornia
+          </a>
+        </li>
       </ul>
     </section>
   </main>
