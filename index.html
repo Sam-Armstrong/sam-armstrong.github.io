@@ -63,8 +63,8 @@
     }
 
     header.site-header {
-      margin-bottom: 56px;
-      padding-bottom: 24px;
+      margin-bottom: 48px;
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -111,7 +111,7 @@
     }
 
     section {
-      margin-bottom: 64px;
+      margin-bottom: 48px;
       scroll-margin-top: 32px;
     }
 
@@ -129,12 +129,59 @@
       color: var(--accent);
     }
 
+    .profile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
     .profile-links {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
-      margin-top: 24px;
+    }
+
+    .cv-block {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cv {
+      text-decoration: none;
+      line-height: 0;
+      border-radius: 6px;
+      transition: opacity 0.2s ease;
+    }
+
+    .cv:hover {
+      opacity: 0.85;
+    }
+
+    .cv img {
+      display: block;
+      height: auto;
+      width: clamp(60px, 18vw, 120px);
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(26, 24, 20, 0.1);
+    }
+
+    .cv-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .cv-updated {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--muted);
     }
 
     .profile-links a {
@@ -295,19 +342,28 @@
         <img src="images/sam.jpeg" alt="Sam Armstrong" class="site-avatar">
       </div>
       <!-- <p class="site-tagline"></p> -->
-      <div class="profile-links">
-        <a href="mailto:hello@example.com">
-          <img src="images/gmail.png" alt="">
-          samuel.armstrong2014@gmail.com
-        </a>
-        <a href="https://github.com/Sam-Armstrong">
-          <img src="images/github.png" alt="">
-          github.com/Sam-Armstrong
-        </a>
-        <a href="https://www.linkedin.com/in/sam-a-a5557112a/">
-          <img src="images/linkedin.png" alt="">
-          linkedin.com/in/sam-a-a5557112a/
-        </a>
+      <div class="profile-row">
+        <div class="cv-block">
+          <p class="cv-label">CV / Resume</p>
+          <a href="pdfs/CV.pdf" target="_blank" rel="noopener" class="cv">
+            <img src="images/CV.png" alt="CV">
+          </a>
+          <p class="cv-updated">Last Updated: June 2026</p>
+        </div>
+        <div class="profile-links">
+          <a href="mailto:hello@example.com">
+            <img src="images/gmail.png" alt="">
+            samuel.armstrong2014@gmail.com
+          </a>
+          <a href="https://github.com/Sam-Armstrong">
+            <img src="images/github.png" alt="">
+            github.com/Sam-Armstrong
+          </a>
+          <a href="https://www.linkedin.com/in/sam-a-a5557112a/">
+            <img src="images/linkedin.png" alt="">
+            linkedin.com/in/sam-a-a5557112a/
+          </a>
+        </div>
       </div>
     </header>
 
