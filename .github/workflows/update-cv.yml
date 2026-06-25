@@ -1,0 +1,67 @@
+name: Update CV
+
+on:
+  repository_dispatch:
+    types: [cv-updated]
+  workflow_dispatch:
+    inputs:
+      cv_ref:
+        description: "CV repository git ref (branch, tag, or commit SHA)"
+        required: false
+        default: main
+        type: string
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve CV ref
+        id: cv-ref
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "ref=${{ github.event.client_payload.cv_ref }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${{ inputs.cv_ref }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout CV source
+        uses: actions/checkout@v4
+        with:
+          repository: Sam-Armstrong/CV
+          ref: ${{ steps.cv-ref.outputs.ref }}
+          path: cv-source
+
+      - name: Install poppler
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Update website assets
+        run: |
+          if [ ! -f cv-source/CV.pdf ]; then
+            echo "CV.pdf not found in Sam-Armstrong/CV at ref ${{ steps.cv-ref.outputs.ref }}"
+            exit 1
+          fi
+
+          cp cv-source/CV.pdf pdfs/CV.pdf
+          pdftoppm -png -f 1 -l 1 -r 150 -singlefile pdfs/CV.pdf images/CV
+          MONTH_YEAR=$(date -u +"%B %Y")
+          sed -i "s|<p class=\"cv-updated\">Last Updated: .*</p>|<p class=\"cv-updated\">Last Updated: ${MONTH_YEAR}</p>|" index.html
+
+      - name: Commit and push to main
+        run: |
+          git config user.name "Sam-Armstrong"
+          git config user.email "samuel_e_armstrong@yahoo.co.uk"
+
+          git add pdfs/CV.pdf images/CV.png index.html
+          if git diff --staged --quiet; then
+            echo "No file changes to commit."
+          else
+            git commit -m "Update CV from Sam-Armstrong/CV@${{ steps.cv-ref.outputs.ref }}"
+            git push origin main
+          fi
+
+      - name: Sync deploy branch with main
+        run: git push origin main:deploy --force
