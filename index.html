@@ -39,10 +39,7 @@
       font-size: 1rem;
       line-height: 1.65;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 0% 0%, rgba(196, 92, 38, 0.08), transparent 42%),
-        radial-gradient(circle at 100% 100%, rgba(26, 24, 20, 0.04), transparent 40%),
-        var(--bg);
+      background: var(--bg);
     }
 
     a {
@@ -59,7 +56,7 @@
     .page {
       width: min(100% - 40px, var(--max-width));
       margin: 0 auto;
-      padding: 56px 0 80px;
+      padding: 36px 0 80px;
     }
 
     header.site-header {
@@ -95,8 +92,8 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
-      margin-bottom: 20px;
+      gap: 36px;
+      margin-bottom: 60px;
     }
 
     nav.toc a {
@@ -394,6 +391,11 @@
       color: var(--accent);
     }
 
+    .education-honours-label {
+      color: var(--ink);
+      font-style: normal;
+    }
+
     .education-summary {
       margin: 0 0 16px;
       font-size: 0.95rem;
@@ -450,10 +452,11 @@
 <body>
   <main class="page">
     <nav class="toc" aria-label="Sections">
-      <a href="#projects">Projects</a>
+      <a href="#projects">Projects/Contributions</a>
+      <a href="#writing">Writing</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
-      <a href="#writing">Writing</a>
+      <a href="#miscellaneous">Miscellaneous</a>
     </nav>
     <header class="site-header">
       <div class="site-title-row">
@@ -495,7 +498,7 @@
     </header>
 
     <section id="projects" aria-labelledby="projects-heading">
-      <p class="section-label">Things I've Worked On</p>
+      <p class="section-label">Interesting Things I've Worked On</p>
       <ul class="project-list">
         <li class="project-item">
           <h3><a href="#">ivy</a></h3>
@@ -622,7 +625,7 @@
             <span class="education-dates">2018-2021</span>
           </div>
           <p class="education-degree">BSc Artificial Intelligence and Computer Science</p>
-          <p class="education-honours">First Class Honours</p>
+          <p class="education-honours"><span class="education-honours-label">Grade:</span> First Class Honours</p>
           <p class="education-summary">
             Focussing on theoretical grounding and applications of deep learning;
             software engineering and system design; and agent-based modelling.
