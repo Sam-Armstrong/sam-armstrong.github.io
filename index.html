@@ -159,10 +159,6 @@
       transition: opacity 0.2s ease;
     }
 
-    .cv:hover {
-      opacity: 0.85;
-    }
-
     .cv img {
       display: block;
       height: auto;
@@ -345,6 +341,94 @@
       color: var(--accent);
     }
 
+    .education-list {
+      display: grid;
+      gap: 32px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .education-item {
+      padding-bottom: 18px;
+    }
+
+    .education-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .education-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 0px;
+    }
+
+    .education-header h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .education-dates {
+      flex-shrink: 0;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .education-degree {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .education-honours {
+      margin: 0 0 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .education-summary {
+      margin: 0 0 16px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .education-modules-label {
+      margin: 0 0 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .education-modules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .education-modules li {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
     @media (max-width: 520px) {
       .page {
         width: min(100% - 24px, var(--max-width));
@@ -354,6 +438,12 @@
       .writing-list {
         grid-template-columns: 1fr;
       }
+
+      .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
     }
   </style>
 </head>
@@ -361,6 +451,7 @@
   <main class="page">
     <nav class="toc" aria-label="Sections">
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
       <a href="#writing">Writing</a>
     </nav>
     <header class="site-header">
@@ -499,6 +590,57 @@
           </li>
       </ul>
     </section>
+
+    <section id="education" aria-labelledby="education-heading">
+      <p class="section-label">Education</p>
+      <ul class="education-list">
+        <li class="education-item">
+          <div class="education-header">
+            <h3>University of Warwick</h3>
+            <span class="education-dates">2025–2026</span>
+          </div>
+          <p class="education-degree">MSc Computer Science</p>
+          <p class="education-summary">
+            Focussing on advanced topics in high performance computing, agentic artificial intelligence,
+            computer security, networks, and computer science theory.
+          </p>
+          <p class="education-modules-label">Notable modules</p>
+          <ul class="education-modules">
+            <li>Sensor Networks and Data Communications</li>
+            <li>Agent Based Systems</li>
+            <li>Machine Learning Applications</li>
+            <li>High Performance Computing</li>
+            <li>Computer Security</li>
+            <li>Foundations of Computer Science</li>
+            <li>HPC Thesis</li>
+          </ul>
+        </li>
+        <li class="education-item">
+          <div class="education-header">
+            <h3>University of Sheffield</h3>
+            <span class="education-dates">2018–2021</span>
+          </div>
+          <p class="education-degree">BSc Artificial Intelligence and Computer Science</p>
+          <p class="education-honours">First Class Honours</p>
+          <p class="education-summary">
+            Focussing on theoretical grounding and applications of deep learning;
+            software engineering and system design; and agent-based modelling.
+          </p>
+          <p class="education-modules-label">Notable modules</p>
+          <ul class="education-modules">
+            <li>Agent-Based Modelling Dissertation</li>
+            <li>Adaptive Intelligence</li>
+            <li>Text Processing</li>
+            <li>Speech Processing</li>
+            <li>Bioinspired Computing</li>
+            <li>Software Reengineering</li>
+            <li>System Design and Security</li>
+            <li>Functional Programming</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
     <section id="miscellaneous" aria-labelledby="miscellaneous-heading">
       <p class="section-label">Miscellaneous</p>
       <ul class="miscellaneous-list">
