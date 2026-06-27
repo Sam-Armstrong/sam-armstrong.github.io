@@ -367,6 +367,20 @@
       margin: 0;
       font-size: 1.05rem;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .company-icon {
+      height: 14px;
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    .education-header-meta {
+      color: var(--muted);
+      font-weight: 500;
     }
 
     .education-dates {
@@ -650,12 +664,27 @@
       <ul class="education-list">
         <li class="education-item">
           <div class="education-header">
-            <h3>Ivy</h3>
+            <h3>
+              <a href="https://github.com/unifyai/ivy" target="_blank" rel="noopener">
+                <img src="images/ivy.png" alt="" class="company-icon">
+              </a>
+              Ivy
+            </h3>
             <span class="education-dates">2024-2025</span>
           </div>
           <p class="education-degree">Co-Founder</p>
           <p class="education-summary">
             Brief summary of responsibilities and impact at Ivy (placeholder).
+            <!--
+            - Spin-off
+            - Converted Ivy into source-to-source transpiler for models and code between frameworks
+            - AST manipulation
+            - Using ivy as intermediate representation
+            - Created frontend website and backend service for handling subscriptions
+            - Now fully open-source project available on PyPI and GitHub, with over 14,000 stars
+            - Successfully integrated into Kornia to allow their PyTorch-based computer vision library to be
+              natively used with JAX, TensorFlow, and NumPy
+            -->
           </p>
           <p class="education-modules-label">Key areas</p>
           <ul class="education-modules">
@@ -666,12 +695,25 @@
         </li>
         <li class="education-item">
           <div class="education-header">
-            <h3>Unify AI</h3>
+            <h3>
+              <a href="https://www.ycombinator.com/companies/unify" target="_blank" rel="noopener">
+                <img src="images/unify-ai.png" alt="" class="company-icon">
+              </a>
+              Unify AI <span class="education-header-meta">(YC W23)</span>
+            </h3>
             <span class="education-dates">2023-2024</span>
           </div>
           <p class="education-degree">Machine Learning Software Engineer</p>
           <p class="education-summary">
             Brief summary of responsibilities and impact at Unify AI (placeholder).
+            <!--
+            - Python programming
+            - Git version control, reviewing PRs
+            - CI/CD
+            - Interviewing candidates
+            - Attending meetings (Cherry Ventures, AWS Startup Day in Farringdon, Intel Ignite, GCP event at Google in King's Cross)
+            - Working on the graph compiler, using function tracing to generate an efficient computational graph from arbitrary Python code
+            -->
           </p>
           <p class="education-modules-label">Key areas</p>
           <ul class="education-modules">
@@ -682,12 +724,26 @@
         </li>
         <li class="education-item">
           <div class="education-header">
-            <h3>Intradiem</h3>
+            <h3>
+              <a href="https://intradiem.com/" target="_blank" rel="noopener">
+                <img src="images/intradiem.png" alt="" class="company-icon">
+              </a>
+              Intradiem
+            </h3>
             <span class="education-dates">2022-2023</span>
           </div>
           <p class="education-degree">Machine Learning Engineer</p>
           <p class="education-summary">
             Brief summary of responsibilities and impact at Intradiem (placeholder).
+            <!--
+            - Apache Hadoop
+            - Java Microservices with Spring Boot and Temporal Flow
+            - Python microservice with Flask and SQLAlchemy
+            - AWS S3, EC2
+            - Docker
+            - CI/CD
+            - Cloud Infrastructure
+            -->
           </p>
           <p class="education-modules-label">Key areas</p>
           <ul class="education-modules">
