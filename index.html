@@ -197,63 +197,21 @@
       flex-shrink: 0;
     }
 
-    .project-list {
-      display: grid;
-      gap: 16px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .project-item {
-      padding: 20px 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .project-item:hover {
-      border-color: rgba(196, 92, 38, 0.3);
-      box-shadow: 0 4px 16px rgba(26, 24, 20, 0.06);
-    }
-
-    .project-item h3 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .project-item h3 a {
+    .education-header h3 > a:only-child {
       color: var(--ink);
       text-decoration: none;
     }
 
-    .project-item h3 a:hover {
+    .education-header h3 > a:only-child:hover {
       color: var(--accent);
     }
 
-    .project-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
+    #projects .education-list {
+      gap: 32px;
     }
 
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: var(--bg);
-      color: var(--muted);
-      border: 1px solid var(--border);
+    #projects .education-item {
+      padding-bottom: 0;
     }
 
     .writing-list {
@@ -513,44 +471,74 @@
 
     <section id="projects" aria-labelledby="projects-heading">
       <p class="section-label">Interesting Things I've Worked On</p>
-      <ul class="project-list">
-        <li class="project-item">
-          <h3><a href="#">ivy</a></h3>
-          <p>Significantly contributed to ivy - a multi-backend deep learning framework with transpilation and optimisation capabilities.</p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">PyTorch/JAX</span>
-            <span class="tag">Neural Networks</span>
-            <span class="tag">Graph Compilation</span>
-            <span class="tag">AST</span>
+      <ul class="education-list">
+        <li class="education-item">
+          <div class="education-header">
+            <h3><a href="#">CozyCasts</a></h3>
           </div>
-        </li>
-        <li class="project-item">
-          <h3><a href="#">CozyCasts</a></h3>
-          <p>
+          <p class="education-summary">
             Built CozyCasts from scratch, which is a AI-generated podcasts platform to help with learning.
             Created the backend with Python and FastAPI, deployed on Google Cloud Platform, making use
             of the Gemini and Claude APIs. Created the frontend with React and TypeScript, deployed on Vercel.
           </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">System Design</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Agentic AI</span>
-            <span class="tag">AI Deployment</span>
-            <span class="tag">React/TypeScript</span>
-          </div>
+          <p class="education-modules-label">Skills</p>
+          <ul class="education-modules">
+            <li>Python</li>
+            <li>System Design</li>
+            <li>GCP</li>
+            <li>Agentic AI</li>
+            <li>AI Deployment</li>
+            <li>React/TypeScript</li>
+          </ul>
         </li>
-        <li class="project-item">
-          <h3><a href="#">OP2</a></h3>
-          <p>Developed the OP2 translator for Fortran source code using the LLVM Flang compiler frontend.</p>
-          <div class="project-tags">
-            <span class="tag">C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">AST</span>
-            <span class="tag">Compilers</span>
-            <span class="tag">Domain Specific Languages</span>
+        <li class="education-item">
+          <div class="education-header">
+            <h3><a href="#">UFC-Almanac</a></h3>
           </div>
+          <p class="education-summary">
+            Collection of up-to-date UFC datasets of fighters/fights scraped from the web, with ML pipelines for predicting fight outcomes.
+          </p>
+          <p class="education-modules-label">Skills</p>
+          <ul class="education-modules">
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>Neural Networks</li>
+            <li>ML Pipelines</li>
+            <li>Data Engineering</li>
+            <li>Web Scraping</li>
+          </ul>
+        </li>
+        <li class="education-item">
+          <div class="education-header">
+            <h3><a href="#">OP2</a></h3>
+          </div>
+          <p class="education-summary">
+            Developed the OP2 translator for Fortran source code using the LLVM Flang compiler frontend.
+          </p>
+          <p class="education-modules-label">Skills</p>
+          <ul class="education-modules">
+            <li>C++</li>
+            <li>Python</li>
+            <li>AST</li>
+            <li>Compilers</li>
+            <li>Domain Specific Languages</li>
+          </ul>
+        </li>
+        <li class="education-item">
+          <div class="education-header">
+            <h3><a href="#">Ivy</a></h3>
+          </div>
+          <p class="education-summary">
+            Significantly contributed to ivy - a multi-backend deep learning framework with transpilation and optimisation capabilities.
+          </p>
+          <p class="education-modules-label">Skills</p>
+          <ul class="education-modules">
+            <li>Python</li>
+            <li>PyTorch/JAX</li>
+            <li>Neural Networks</li>
+            <li>Graph Compilation</li>
+            <li>AST</li>
+          </ul>
         </li>
       </ul>
     </section>
