@@ -247,6 +247,20 @@
       border-radius: 3px;
     }
 
+    .ufc-almanac {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .ufc-almanac img {
+      display: block;
+      height: 200px;
+      width: auto;
+      box-shadow: 0 2px 12px rgba(26, 24, 20, 0.1);
+    }
+
     .writing-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -583,8 +597,19 @@
           <div class="education-header">
             <h3><a href="https://github.com/Sam-Armstrong/UFC-Almanac" target="_blank" rel="noopener">UFC Almanac</a></h3>
           </div>
+          <div class="ufc-almanac">
+            <img src="images/ufc-almanac.png" alt="UFC Almanac">
+          </div>
+          <p class="education-summary">
+            A collection of UFC datasets of fighters and fights scraped from the web and regularly updated via
+            CI/CD pipelines in GitHub Actions. Also includes data transformation pipelines to convert the raw
+            data into structured training datasets for machine learning, and deep learning models/training
+            pipelines for predicting fight outcomes.            
+          </p>
           <p class="education-summary-next-paragraph">
-            Collection of up-to-date UFC datasets of fighters/fights scraped from the web, with ML pipelines for predicting fight outcomes.
+            The primary model used is a transformer model that, for each fighter in an upcoming fight, encodes the
+            sequence of statistics from their previous fights into a latent space, then uses a classification
+            head to predict the outcome of the fight.
           </p>
           <ul class="project-links">
             <li>
