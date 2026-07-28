@@ -262,6 +262,35 @@
       box-shadow: 0 2px 12px rgba(26, 24, 20, 0.1);
     }
 
+    .pdf-word-count {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pdf-word-count img {
+      display: block;
+      height: 90px;
+      width: auto;
+    }
+
+    .cozycasts-screenshots {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+
+    .cozycasts-screenshots img {
+      display: block;
+      width: calc(35% - 6px);
+      height: auto;
+      border-radius: 6px;
+    }
+
     .writing-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -473,6 +502,14 @@
         align-items: flex-start;
         gap: 4px;
       }
+
+      .cozycasts-screenshots {
+        flex-direction: column;
+      }
+
+      .cozycasts-screenshots img {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -531,6 +568,9 @@
           <div class="education-header">
             <h3><a href="https://github.com/Sam-Armstrong/pdf-word-count" target="_blank" rel="noopener">PDF Word Count</a></h3>
           </div>
+          <div class="pdf-word-count">
+            <img src="images/pdf-word-count.png" alt="PDF Word Count">
+          </div>
           <p class="education-summary-next-paragraph">
             Created an extension for Visual Studio Code and Open VSX compatible editors (such as Cursor), which displays the word
             count of PDF documents in the status bar, along with more detailed statistics about a PDF (file size, page count,
@@ -570,6 +610,10 @@
         <li class="education-item">
           <div class="education-header">
             <h3><a href="https://cozycasts.com/" target="_blank" rel="noopener">CozyCasts</a></h3>
+          </div>
+          <div class="cozycasts-screenshots">
+            <img src="images/cozycasts_interface.png" alt="CozyCasts podcast creation interface">
+            <img src="images/cozycasts_library.png" alt="CozyCasts podcast library">
           </div>
           <p class="education-summary-next-paragraph">
             Built CozyCasts, an AI-generated podcasts platform to allow the creation of custom podcasts
