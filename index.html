@@ -199,12 +199,19 @@
       flex-shrink: 0;
     }
 
-    .education-header h3 > a:only-child {
+    .education-header h3 > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: var(--ink);
       text-decoration: none;
     }
 
-    .education-header h3 > a:only-child:hover {
+    .education-header h3 > a:hover {
+      color: var(--accent);
+    }
+
+    .education-header h3 > a:hover .education-header-meta {
       color: var(--accent);
     }
 
@@ -757,8 +764,8 @@
             <h3>
               <a href="https://warwick.ac.uk/" target="_blank" rel="noopener">
                 <img src="images/warwick.png" alt="" class="company-icon">
+                University of Warwick
               </a>
-              University of Warwick
             </h3>
             <span class="education-dates">2025-2026</span>
           </div>
@@ -786,8 +793,8 @@
             <h3>
               <a href="https://www.sheffield.ac.uk/" target="_blank" rel="noopener">
                 <img src="images/sheffield.png" alt="" class="company-icon">
+                University of Sheffield
               </a>
-              University of Sheffield
             </h3>
             <span class="education-dates">2018-2021</span>
           </div>
@@ -822,8 +829,8 @@
             <h3>
               <a href="https://github.com/unifyai/ivy" target="_blank" rel="noopener">
                 <img src="images/ivy.png" alt="" class="company-icon">
+                Ivy
               </a>
-              Ivy
             </h3>
             <span class="education-dates">2024-2025</span>
           </div>
@@ -867,10 +874,13 @@
         <li class="education-item">
           <div class="education-header">
             <h3>
-              <a href="https://www.ycombinator.com/companies/unify" target="_blank" rel="noopener">
+              <a href="https://unify.ai/" target="_blank" rel="noopener">
                 <img src="images/unify-ai.png" alt="" class="company-icon">
+                Unify AI
               </a>
-              Unify AI <span class="education-header-meta">(YC W23)</span>
+              <a href="https://www.ycombinator.com/companies/unify" target="_blank" rel="noopener">
+                <span class="education-header-meta">(YC W23)</span>
+              </a>
             </h3>
             <span class="education-dates">2023-2024</span>
           </div>
@@ -910,8 +920,8 @@
             <h3>
               <a href="https://intradiem.com/" target="_blank" rel="noopener">
                 <img src="images/intradiem.png" alt="" class="company-icon">
+                Intradiem
               </a>
-              Intradiem
             </h3>
             <span class="education-dates">2022-2023</span>
           </div>
