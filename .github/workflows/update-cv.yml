@@ -11,11 +11,18 @@ on:
         default: main
         type: string
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   update-cv:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +30,11 @@ jobs:
         id: cv-ref
         run: |
           if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
-            echo "ref=${{ github.event.client_payload.cv_ref }}" >> "$GITHUB_OUTPUT"
+            ref="${{ github.event.client_payload.cv_ref }}"
+            if [ -z "$ref" ]; then
+              ref="main"
+            fi
+            echo "ref=$ref" >> "$GITHUB_OUTPUT"
           else
             echo "ref=${{ inputs.cv_ref }}" >> "$GITHUB_OUTPUT"
           fi
@@ -51,6 +62,7 @@ jobs:
           sed -i "s|<p class=\"cv-updated\">Last Updated: .*</p>|<p class=\"cv-updated\">Last Updated: ${MONTH_YEAR}</p>|" index.html
 
       - name: Commit and push to main
+        id: commit
         run: |
           git config user.name "Sam-Armstrong"
           git config user.email "samuel_e_armstrong@yahoo.co.uk"
@@ -58,10 +70,40 @@ jobs:
           git add pdfs/CV.pdf images/CV.png index.html
           if git diff --staged --quiet; then
             echo "No file changes to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "sha=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Update CV from Sam-Armstrong/CV@${{ steps.cv-ref.outputs.ref }}"
             git push origin main
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Sync deploy branch with main
-        run: git push origin main:deploy --force
+  deploy:
+    needs: update-cv
+    if: needs.update-cv.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.update-cv.outputs.sha }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
