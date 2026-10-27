@@ -44,6 +44,7 @@ jobs:
         with:
           repository: Sam-Armstrong/CV
           ref: ${{ steps.cv-ref.outputs.ref }}
+          token: ${{ secrets.CV_REPO_TOKEN || github.token }}
           path: cv-source
 
       - name: Install poppler
